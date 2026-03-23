@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: flaskcrud_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: faztpassword
+      MYSQL_DATABASE: flaskcrud
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d
+    networks:
+      - flaskcrud_net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+
+  web:
+    build: .
+    container_name: flaskcrud_app
+    restart: always
+    ports:
+      - "8081:8081"
+    env_file:
+      - .env
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - flaskcrud_net
+
+volumes:
+  mysql_data:
+
+networks:
+  flaskcrud_net:
+    driver: bridge
