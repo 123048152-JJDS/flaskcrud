@@ -2,8 +2,8 @@
 
 Proyecto original por: [Javier Moya](https://github.com/javiermoya2504/flaskcrud)
 
-Alumno: Jesús Jiménez De Santiago
-Materia: Tecnologías de Virtualizacíon  
+Alumno: Jesús Jiménez De Santiago 
+Materia: Tecnologías de Virtualizacíon    
 Docente: JOSE JAVIER MOYA MOYA  
 Universidad Politécnica de Querétaro  
 
