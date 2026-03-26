@@ -35,14 +35,14 @@ services:
         condition: service_healthy
     networks:
       - flaskcrud_net
-      # Actualizacion 
-      - dokploy-network
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.flaskcrud.rule=Host(`dokploy-compose-ptd3f5-e09d1e-131-196-245-120.traefik.me`)"
-      - "traefik.http.routers.flaskcrud.entrypoints=websecure"
-      - "traefik.http.routers.flaskcrud.tls.certresolver=letsencrypt"
-      - "traefik.http.services.flaskcrud.loadbalancer.server.port=8081"
+    #   # Actualizacion 
+    #   - dokploy-network
+    # labels:
+    #   - "traefik.enable=true"
+    #   - "traefik.http.routers.flaskcrud.rule=Host(`dokploy-compose-ptd3f5-e09d1e-131-196-245-120.traefik.me`)"
+    #   - "traefik.http.routers.flaskcrud.entrypoints=websecure"
+    #   - "traefik.http.routers.flaskcrud.tls.certresolver=letsencrypt"
+    #   - "traefik.http.services.flaskcrud.loadbalancer.server.port=8081"
       
 volumes:
   mysql_data:
@@ -50,6 +50,6 @@ volumes:
 networks:
   flaskcrud_net:
     driver: bridge
-    # Actualizacion
-  dokploy-network:
-    external: true
+  #   # Actualizacion
+  # dokploy-network:
+  #   external: true
